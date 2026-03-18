@@ -1,0 +1,15 @@
+{
+  "originHash" : "d84e65762832fe51c7063398afab3913c10ab42816e3f28b9147ec2051cc08ac",
+  "pins" : [
+    {
+      "identity" : "maestrokit.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lessthan3/MaestroKit.swift",
+      "state" : {
+        "revision" : "d80a5307a743fb78c5f71a1b6e7ffca54b19162a",
+        "version" : "10.4.2"
+      }
+    }
+  ],
+  "version" : 3
+}
