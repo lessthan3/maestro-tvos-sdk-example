@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15D5A4182F6B05790030355D /* MaestroKit.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 15D5A4172F6B05790030355D /* MaestroKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D5A4182F6B05790030355D /* MaestroKit.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +92,7 @@
 			);
 			name = "Hello World";
 			packageProductDependencies = (
+				15D5A4172F6B05790030355D /* MaestroKit.swift */,
 			);
 			productName = "Hello World";
 			productReference = FE25BE592F223A1400CE5BAE /* Hello World.app */;
@@ -120,6 +123,7 @@
 			mainGroup = FE25BE502F223A1400CE5BAE;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				15D5A4162F6B05790030355D /* XCRemoteSwiftPackageReference "MaestroKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FE25BE5A2F223A1400CE5BAE /* Products */;
@@ -210,6 +214,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -263,6 +268,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -376,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15D5A4162F6B05790030355D /* XCRemoteSwiftPackageReference "MaestroKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lessthan3/MaestroKit.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15D5A4172F6B05790030355D /* MaestroKit.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15D5A4162F6B05790030355D /* XCRemoteSwiftPackageReference "MaestroKit" */;
+			productName = MaestroKit.swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FE25BE512F223A1400CE5BAE /* Project object */;
 }
