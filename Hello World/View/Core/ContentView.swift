@@ -10,32 +10,57 @@ struct ContentView: View {
     @Environment(ContentViewModel.self) private var viewModel
     @FocusState private var isPanelFocused: Bool
 
+    private let panelWidth: CGFloat = 676
+
     var body: some View {
+        ZStack {
+            Image("BackgroundImage")
+            videoPlayerWithPanel
+        }
+        .ignoresSafeArea()
+        .task {
+            await viewModel.start()
+        }
+    }
+
+    var videoPlayerWithPanel: some View {
         HStack(spacing: 0) {
-            // Your app content
+            // Video player area
             VStack {
                 Spacer()
-                Text("Your App")
-                    .font(.title)
-                Button(viewModel.isShowingPanel ? "Hide Panel" : "Show Panel") {
-                    viewModel.isShowingPanel.toggle()
-                }
-                .padding()
+                Image("KP-player_Full")
+                    .resizable()
+                    .scaledToFit()
+                    .overlay(alignment: .bottomTrailing) {
+                        Button("Panels") {
+                            withAnimation(.easeInOut(duration: 0.45)) {
+                                viewModel.isShowingPanel.toggle()
+                            }
+                        }
+                        .padding()
+                    }
                 Spacer()
             }
-            .frame(maxWidth: .infinity)
             .focusSection()
 
             // Maestro Panel
             if viewModel.isShowingPanel {
-                MaestroPanel()
-                    .frame(width: 676)
-                    .focused($isPanelFocused)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color(white: 0.15))
+
+                    Text("Your content here")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+
+                    MaestroPanel()
+                }
+                .frame(width: panelWidth)
+                .focused($isPanelFocused)
+                .border(Color.red, width: 2)
+                .transition(.move(edge: .trailing))
             }
         }
-        .background(Color.black)
-        .task {
-            await viewModel.start()
-        }
+        .animation(.easeInOut(duration: 0.45), value: viewModel.isShowingPanel)
     }
 }

@@ -12,10 +12,10 @@ struct Hello_WorldApp: App {
 
     init() {
         MaestroManager.shared.configure(
-            siteID: "your-site-id",
+            siteID: "695c05610f99e7584a1b7407",
             jwt: "",
             maestroManagerDelegate: AppDelegate(),
-            maestroWorkingEnvironment: .qa,
+            maestroWorkingEnvironment: .prod,
             defaultPanel: .stats
         )
     }

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15D5A4182F6B05790030355D /* MaestroKit.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 15D5A4172F6B05790030355D /* MaestroKit.swift */; };
+		1521EA0B2F6B3D15000ED5A3 /* MaestroKit.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 1521EA0A2F6B3D15000ED5A3 /* MaestroKit.swift */; };
+		15D5A42D2F6B3DD00030355D /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 15D5A42C2F6B3DD00030355D /* RiveRuntime */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15D5A4182F6B05790030355D /* MaestroKit.swift in Frameworks */,
+				1521EA0B2F6B3D15000ED5A3 /* MaestroKit.swift in Frameworks */,
+				15D5A42D2F6B3DD00030355D /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +94,8 @@
 			);
 			name = "Hello World";
 			packageProductDependencies = (
-				15D5A4172F6B05790030355D /* MaestroKit.swift */,
+				1521EA0A2F6B3D15000ED5A3 /* MaestroKit.swift */,
+				15D5A42C2F6B3DD00030355D /* RiveRuntime */,
 			);
 			productName = "Hello World";
 			productReference = FE25BE592F223A1400CE5BAE /* Hello World.app */;
@@ -123,7 +126,8 @@
 			mainGroup = FE25BE502F223A1400CE5BAE;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				15D5A4162F6B05790030355D /* XCRemoteSwiftPackageReference "MaestroKit" */,
+				1521EA092F6B3D15000ED5A3 /* XCRemoteSwiftPackageReference "MaestroKit" */,
+				15D5A42B2F6B3DD00030355D /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FE25BE5A2F223A1400CE5BAE /* Products */;
@@ -384,21 +388,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		15D5A4162F6B05790030355D /* XCRemoteSwiftPackageReference "MaestroKit" */ = {
+		1521EA092F6B3D15000ED5A3 /* XCRemoteSwiftPackageReference "MaestroKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/lessthan3/MaestroKit.swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
+				minimumVersion = 10.4.2;
+			};
+		};
+		15D5A42B2F6B3DD00030355D /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.17.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		15D5A4172F6B05790030355D /* MaestroKit.swift */ = {
+		1521EA0A2F6B3D15000ED5A3 /* MaestroKit.swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 15D5A4162F6B05790030355D /* XCRemoteSwiftPackageReference "MaestroKit" */;
+			package = 1521EA092F6B3D15000ED5A3 /* XCRemoteSwiftPackageReference "MaestroKit" */;
 			productName = MaestroKit.swift;
+		};
+		15D5A42C2F6B3DD00030355D /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15D5A42B2F6B3DD00030355D /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
