@@ -2,21 +2,35 @@
 //  Hello_WorldApp.swift
 //  Hello World
 //
-//  Created by Todd Gibbons on 1/2/25.
-//
 
 import SwiftUI
+import MaestroKit
 
 @main
 struct Hello_WorldApp: App {
-    @State private var contentViewModel = ContentViewModel()
+    @State private var viewModel = ContentViewModel()
+
+    init() {
+        MaestroManager.shared.configure(
+            siteID: "695c05610f99e7584a1b7407",
+            jwt: "",
+            maestroManagerDelegate: AppDelegate(),
+            maestroWorkingEnvironment: .prod,
+            defaultPanel: .stats
+        )
+    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .background(Color(red: 0.03, green: 0.03, blue: 0.07))
-                .environment(contentViewModel)
+                .environment(viewModel)
                 .environment(\.colorScheme, .dark)
         }
+    }
+}
+
+final class AppDelegate: MaestroManagerDelegate {
+    func trackAnalyticsEvent(name: String, attributes: [String: String]) {
+        print("Analytics: \(name)")
     }
 }

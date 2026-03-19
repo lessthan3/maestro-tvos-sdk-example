@@ -2,44 +2,65 @@
 //  ContentView.swift
 //  Hello World
 //
-//  Created by Todd Gibbons on 1/2/25.
-//
 
 import SwiftUI
-
-struct SampleAppUIConstants {
-    // Layout
-    static let animationDuration: TimeInterval = 0.45
-
-    // Console
-    static let consoleFontSize: Double = 20
-    static let consoleTextColor: Color = .green
-    static let consoleMinimizedHeight: CGFloat = 44
-    static let consoleVisibleLineCountWhenExpanded: Int = 12
-    static let consoleVisibleLineCountWhenMaximized: Int = 40
-
-    // Sliders
-    static let handleHeight: CGFloat = 44
-    static let trackHeight: CGFloat = 8
-    static let cornerRadius: CGFloat = 10
-}
+import MaestroKit
 
 struct ContentView: View {
-    @Environment(ContentViewModel.self) private var contentViewModel
+    @Environment(ContentViewModel.self) private var viewModel
+    @FocusState private var isPanelFocused: Bool
+
+    private let panelWidth: CGFloat = 676
 
     var body: some View {
         ZStack {
             Image("BackgroundImage")
-            videoPlayerView
+            videoPlayerWithPanel
         }
         .ignoresSafeArea()
+        .task {
+            await viewModel.start()
+        }
     }
 
-    var videoPlayerView: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            VideoPlayerView()
-            Spacer()
+    var videoPlayerWithPanel: some View {
+        HStack(spacing: 0) {
+            // Video player area
+            VStack {
+                Spacer()
+                Image("KP-player_Full")
+                    .resizable()
+                    .scaledToFit()
+                    .overlay(alignment: .bottomTrailing) {
+                        Button("Panels") {
+                            withAnimation(.easeInOut(duration: 0.45)) {
+                                viewModel.isShowingPanel.toggle()
+                            }
+                        }
+                        .padding()
+                    }
+                Spacer()
+            }
+            .focusSection()
+
+            // Maestro Panel
+            if viewModel.isShowingPanel {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color(white: 0.15))
+
+                    Text("Your content here")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+
+                    MaestroPanel()
+                }
+                .frame(width: panelWidth)
+                .focused($isPanelFocused)
+                .border(Color.red, width: 2)
+                .transition(.move(edge: .trailing))
+            }
         }
+        .animation(.easeInOut(duration: 0.45), value: viewModel.isShowingPanel)
     }
 }

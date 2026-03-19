@@ -1,5 +1,5 @@
 {
-  "originHash" : "d84e65762832fe51c7063398afab3913c10ab42816e3f28b9147ec2051cc08ac",
+  "originHash" : "50f277b99460b82c5a93a8b72fe87d15c1999e6d1404bd2b47901b549e360282",
   "pins" : [
     {
       "identity" : "maestrokit.swift",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "d80a5307a743fb78c5f71a1b6e7ffca54b19162a",
         "version" : "10.4.2"
+      }
+    },
+    {
+      "identity" : "rive-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rive-app/rive-ios",
+      "state" : {
+        "revision" : "51cedcaae851ea5145acbfa8b9868737c5a38d58",
+        "version" : "6.17.0"
       }
     }
   ],
