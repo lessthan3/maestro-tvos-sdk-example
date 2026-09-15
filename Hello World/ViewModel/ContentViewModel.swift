@@ -14,7 +14,7 @@ class ContentViewModel: MaestroEventDelegate {
 
     func start() async {
         eventInterface = await MaestroManager.shared.userDidStartWatchingEvent(
-            eventID: "695c05610f99e7584a1b743e",
+            eventID: "6aa966d669342216ada5a4b8",
             delegate: self,
             hideBetsPanel: false,
             hideBetsWagers: false,
