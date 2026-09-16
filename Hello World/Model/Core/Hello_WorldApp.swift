@@ -12,7 +12,7 @@ struct Hello_WorldApp: App {
 
     init() {
         MaestroManager.shared.configure(
-            siteID: "695c05610f99e7584a1b7407",
+            siteID: "69b2f133e8117ec6536d59a1",
             jwt: "",
             maestroManagerDelegate: AppDelegate(),
             maestroWorkingEnvironment: .prod,
